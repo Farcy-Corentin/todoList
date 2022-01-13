@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {Provider} from "react-redux";
+import store from "./store";
+import {TodoListStore} from "./components/TodoList";
+import {TodoFilterStore} from "./components/TodoFilter";
+import {AddTodoForm} from "./components/AddTodoForm";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Provider store={store}>
+          <div className="App">
+              <header className="App-header">
+                  <h1>Qu'allez vous faire aujourd'hui?</h1>
+                  <TodoFilterStore />
+                  <AddTodoForm />
+                  <div className="todo-list">
+                      <TodoListStore />
+                  </div>
+              </header>
+          </div>
+      </Provider>
   );
 }
 
