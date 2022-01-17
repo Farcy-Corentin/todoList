@@ -1,4 +1,5 @@
 import {ADD_TODO_ACTION, DELETE_TODO_ACTION, UPDATE_TODO_ACTION} from "./todosReducer";
+import { v4 as uuidv4 } from 'uuid';
 
 
 export const toggleTodoAction = (todo) => ({
@@ -13,5 +14,5 @@ export const deleteTodoAction = (todo) => ({
 
 export const addTodoAction = (title) => ({
   type: ADD_TODO_ACTION,
-    payload: {title: title}
+    payload: {id: uuidv4(), title: title}
 })

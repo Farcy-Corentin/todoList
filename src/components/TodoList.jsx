@@ -2,13 +2,12 @@ import React, {useCallback} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {filteredTodosSelector} from "../store/todosSelector";
 import {deleteTodoAction, toggleTodoAction} from "../store/todosActions";
-import {BiTrashAlt, BiCheck} from "../react-icons/react-icons-proxy";
+import {BiTrashAlt} from "../react-icons/react-icons-proxy";
 
 function TodoItem({todo, onToggle, onDelete}) {
     return (
         <div className={todo.completed ? "todo-item complete" : "todo-item"} onClick={() =>
             onToggle(todo)}>
-            {todo.completed && <BiCheck className="check-icon"/>}
             {todo.title}
             <BiTrashAlt className="delete-icon" onClick={() => onDelete(todo)}/>
         </div>
